@@ -1,0 +1,33 @@
+.title {
+  font-size: 42px;
+  margin: 0 0 10px;
+}
+
+.result {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 15px;
+}
+
+.error {
+  color: red;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 20px 0 0;
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 30px;
+    margin: 0 0 5px;
+  }
+}
+
+@media (max-width: 450px) {
+  .title {
+    font-size: 24px;
+  }
+  .result {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,20 @@
+input, textarea {
+  display: block;
+  width: 100%;
+  font-size: 28px;
+  border: 2px solid rgba(#000, 0.3);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 0 10px;
+  transition: all 0.15s linear;
+  &:focus {
+    border-color: #158B00;
+  }
+}
+
+.custom-area {
+  font-size: 36px;
+  font-weight: 600;
+  flex-grow: 1;
+  resize: none;
+}
