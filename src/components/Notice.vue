@@ -13,18 +13,25 @@ export default {}
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #E4E4F0;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #fff;
   border: 1px solid gray;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 5px rgba(0,0,0, 0.1);
-  transition: all 0.15s linear;
+  box-shadow: 0 0 5px 1px rgba(#000, 0.3);
   padding: 20px;
+  transform: translate(-50%, -50%);
   visibility: hidden;
   opacity: 0;
+  transition: all 0.2s linear;
   &.active {
     visibility: visible;
     opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .notice {
+    font-size: 18px;
   }
 }
 </style>

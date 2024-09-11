@@ -1,9 +1,10 @@
 export default {
   state: {
     currentText: '',
-    texts: [],
+    texts: localStorage.getItem('calcTexts') ? JSON.parse(localStorage.getItem('calcTexts')) : [],
   },
-  actions: {},
+  actions: {
+  },
   mutations: {
     SET_CURRENT_TEXT(state, text) {
       state.currentText = text
@@ -13,10 +14,11 @@ export default {
     },
     ADD_TEXT(state, text) {
       state.texts.push(text)
+      localStorage.setItem('calcTexts', JSON.stringify(state.texts))
     },
     REMOVE_TEXT(state, text) {
-      console.log(text)
       state.texts = state.texts.filter((item) => item.id !== text.id)
+      localStorage.setItem('calcTexts', JSON.stringify(state.texts))
     },
   },
   getters: {

@@ -14,12 +14,12 @@ const routes = [
     redirect: '/calc',
     children: [
       {
-        path: '/calc',
+        path: 'calc',
         name: 'Calc',
         component: () => import('@/components/Calc.vue'),
       },
       {
-        path: '/texts',
+        path: 'texts',
         name: 'Texts',
         component: () => import('@/components/Texts.vue'),
       },
@@ -33,10 +33,12 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // console.log(`isAuth`, store.getters.getIsAuth)
-  // console.log(`localstorage`, localStorage.getItem('calcAuth'))
   if (to.name == 'Login') {
-    return next()
+    if (store.getters.getIsAuth) {
+      return next({ name: 'Calc' })
+    } else {
+      return next()
+    }
   }
   if (!store.getters.getIsAuth) {
     next({ name: 'Login' })

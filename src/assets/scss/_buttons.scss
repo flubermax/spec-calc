@@ -1,5 +1,5 @@
 button {
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 5px;
   border: 2px solid rgba(#000, 0.3);
   background-color: #fff;
@@ -19,6 +19,14 @@ button {
     color: #fff;
     border-color: #d01900;
     background-color: #d01900;
+  }
+}
+
+.btn-primary {
+  &:hover {
+    color: #fff;
+    border-color: #2B7CCD;
+    background-color: #2B7CCD;
   }
 }
 
