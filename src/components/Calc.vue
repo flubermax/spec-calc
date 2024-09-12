@@ -9,8 +9,8 @@
         </div>
         <div class="calc-header-font">
           Размер шрифта:
-          <select name="font-size" id="font-size">
-            <option v-for="font in fontsArray" :key="font" :value="font" :selected="font == getCurrentSize" @click="setFontSize(font)">
+          <select v-model="currentFontSize" name="font-size" id="font-size">
+            <option v-for="font in fontsArray" :key="font" :value="font" :selected="font == getCurrentSize">
               {{ font }}
             </option>
           </select>
@@ -19,7 +19,7 @@
 
       <textarea
         class="custom-area"
-        :style="{fontSize: getCurrentSize + 'px' }"
+        :style="{fontSize: currentFontSize + 'px' }"
         v-model="msg"
         @input="calcSum(msg)"
         cols="30"
@@ -56,7 +56,8 @@ export default {
       data: { ...RUDATA },
       msg: '',
       showCopyInfo: false,
-      fontsArray: [22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42]
+      fontsArray: [22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42],
+      currentFontSize: 36
     }
   },
   watch: {
@@ -75,6 +76,9 @@ export default {
   },
   computed: {
     ...mapGetters(['getCurrentText', 'getCurrentSize']),
+  },
+  mounted() {
+    this.currentFontSize = this.getCurrentSize
   },
   methods: {
     ...mapMutations(['ADD_TEXT', 'SET_CURRENT_TEXT', 'SET_CURRENT_SIZE']),
@@ -116,12 +120,10 @@ export default {
       this.ADD_TEXT(newText)
       this.swalSuccess('Текст успешно сохранён!')
     },
-    setFontSize(size) {
-      this.SET_CURRENT_SIZE(size)
-    }
   },
   beforeUnmount() {
     this.SET_CURRENT_TEXT(this.msg)
+    this.SET_CURRENT_SIZE(this.currentFontSize)
   },
 }
 </script>
