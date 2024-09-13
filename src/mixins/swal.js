@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2'
+import Vue from 'vue'
 
-export const swal = {
+Vue.mixin({
   data() {
     return {}
   },
@@ -24,4 +25,4 @@ export const swal = {
       })
     }
   }
-}
+})

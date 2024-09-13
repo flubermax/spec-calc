@@ -26,8 +26,14 @@
         rows="10"
       ></textarea>
 
+      <vue-context id="context" ref="menu" class="w250px" :close-on-scroll="true">
+        <div>
+          тест
+        </div>
+      </vue-context>
+
       <div class="calc-btns">
-        <button class="btn-primary" :disabled="!msg.length" @click="copyText">
+        <button class="btn-primary" :disabled="true" @click="copyText">
           Копировать текст
         </button>
         <button class="btn-danger" :disabled="!msg.length" @click="clearText">
@@ -45,11 +51,13 @@
 
 <script>
 import Notice from './Notice.vue'
+import VueContext from "vue-context";
 import { mapMutations, mapGetters } from 'vuex'
 import RUDATA from '@/constants/ru-data.js'
 export default {
   name: 'Calc',
-  components: { Notice },
+  components: { Notice, VueContext },
+  // @contextmenu.prevent="$refs.menu.open"
   data() {
     return {
       result: 0,
